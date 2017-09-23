@@ -17,6 +17,10 @@ public:
   double Ki;
   double Kd;
 
+  /* additional*/
+  double cte_intg; // integrated cte
+  double cte_prev; // previous cte
+
   /*
   * Constructor
   */
