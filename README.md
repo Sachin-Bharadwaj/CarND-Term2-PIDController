@@ -93,6 +93,16 @@ that's just a guess.
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
 
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+## REFLECTIONS
 
+### PID controller
+
+* P: Proportional means that the car will steer in proportion to cross track error `cte`. CTE essentially measures how far the car is from the middle of the track. The proportional part has a corresponding coefficient, if it is set too high, the car will oscillate, constantly overcorrect and overshoot. If it is set too low, then car reacts too slowly to the curves and ist gets off-center when the CTE increases.
+
+* I: Intergral part sums up all the CTEs upto the point. It takes care of the constant bias. If the coefficient is set too high for the I part, the car have quick oscillations, and if it is set too low then car tend to drift on one side of the lane for longer periods of time.
+
+* D: Derivative is the change in successive values of the CTE. It results in more smoother driving experience. Too high of a coefficient leads to almost constant steering angle changes of large degrees, where although the car will be well-centered it can hardly move. Too low of a D coefficient will lead to the oscillations being too high with more overshooting.
+
+### Tuning the coefficients
+
+The final values were determined by manual tuning. The coefficients I chose (kp = 0.1, Ki = 0.005, Kd = 4.0) seems to work well. If I lower all of them together, the car struggle on curves, and if I raise all of them together, the car crashes because of large steering angles.
